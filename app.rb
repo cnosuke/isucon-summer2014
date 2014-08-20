@@ -214,7 +214,7 @@ class Isucon3App < Sinatra::Base
     anti_csrf
 
     mysql.xquery(
-      'INSERT INTO memos (user, content, content_html, is_private, created_at) VALUES (?, ?, ?, ?)',
+      'INSERT INTO memos (user, content, content_html, is_private, created_at) VALUES (?, ?, ?, ?, ?)',
       user["id"],
       params["content"],
       gen_markdown(params["content"]),
