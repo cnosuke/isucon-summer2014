@@ -1,15 +1,16 @@
 require 'mysql2-cs-bind'
 require 'json'
+require 'tempfile'
 
 def connection
-  config = JSON.parse("/home/isu-user/isucon/webapp/config/#{ ENV['ISUCON_ENV'] || 'local' }.json"))['database']
+#  config = JSON.parse("/home/isu-user/isucon/webapp/config/#{ ENV['ISUCON_ENV'] || 'local' }.json")['database']
   return $mysql if $mysql
   $mysql = Mysql2::Client.new(
-    :host => config['host'],
-    :port => config['port'],
-    :username => config['username'],
-    :password => config['password'],
-    :database => config['dbname'],
+    :host => 'localhost',
+    :port => 3306,
+    :username => 'isucon',
+    :password => '',
+    :database => 'isucon',
     :reconnect => true,
   )
 end
