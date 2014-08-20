@@ -8,5 +8,6 @@ stderr_path log
 stdout_path log
 
 after_fork do |server, worker|
-  GC.disable
+  # GCは止めてはいけません！！！
+  # GC.disable
 end
